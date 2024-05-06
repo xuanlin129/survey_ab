@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+    integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+    crossorigin='anonymous'></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 微軟正黑體;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .relative {
+      position: relative;
+      max-width: 576px;
+      margin: auto;
+    }
+
+    .relative>div {
+      position: absolute;
+    }
+
+    .title {
+      top: 12%;
+      left: 50%;
+      width: 80%;
+      transform: translate(-50%, -50%);
+    }
+
+    #title2 {
+      width: 50%;
+    }
+
+    .survey_content {
+      top: 35%;
+      left: 15%;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .radio {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio_btn {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      background: #fff;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .radio_btn::before {
+      content: '';
+      width: 80%;
+      height: 80%;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    .survey_content input {
+      display: none;
+    }
+
+    .survey_content input:checked+.radio_btn::before {
+      opacity: 1;
+    }
+
+    #survey3 {
+      align-items: center;
+      left: 0;
+      top: 30%;
+      padding: 30px;
+      height: 60%;
+    }
+
+    .time {
+      margin-top: -5%;
+      margin-bottom: 10%;
+      color: #f000ff;
+    }
+
+    .step1,
+    .step2 {
+      width: 15%;
+      bottom: 15%;
+      z-index: 2;
+    }
+
+    .step1 {
+      left: 10%;
+    }
+
+    .step2 {
+      right: 10%;
+    }
+
+    .step_line {
+      width: 0;
+      height: 1px;
+      border: 1px solid #000;
+      bottom: 20%;
+      left: 15%;
+      transition: all 1s;
+      transform-origin: left;
+      opacity: 0;
+    }
+
+    .discount {
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+    }
+
+    .discount_num {
+      color: #ff0000;
+    }
+
+    .survey_btn {
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="relative">
+    <img src="./images/240503_813_VT001_survey_bg.jpg" alt="">
+    <div id="title1" class="title">
+      <img src="./images/240503_813_VT001_survey_title.png" alt="">
+    </div>
+    <div id="title2" class="title">
+      <img src="./images/240503_813_VT001_survey_title2.png" alt="">
+    </div>
+    <div id="survey1" class="survey_content">
+      <div class="survey_title">1.你想要瘦幾公斤?</div>
+      <label for="Q1_1">
+        <div class="radio">
+          <input type="radio" name="Q1" id="Q1_1">
+          <div class="radio_btn"></div>
+          <span>5公斤以內</span>
+        </div>
+      </label>
+      <label for="Q1_2">
+        <div class="radio">
+          <input type="radio" name="Q1" id="Q1_2">
+          <div class="radio_btn"></div>
+          <span>5~10公斤</span>
+        </div>
+      </label>
+      <label for="Q1_3">
+        <div class="radio">
+          <input type="radio" name="Q1" id="Q1_3">
+          <div class="radio_btn"></div>
+          <span>10~15公斤</span>
+        </div>
+      </label>
+      <label for="Q1_4">
+        <div class="radio">
+          <input type="radio" name="Q1" id="Q1_4">
+          <div class="radio_btn"></div>
+          <span>大於15公斤</span>
+        </div>
+      </label>
+    </div>
+    <div id="survey2" class="survey_content">
+      <div class="survey_title">2.哪個問題最困擾你?</div>
+      <label for="Q2_1">
+        <div class="radio">
+          <input type="radio" name="Q2" id="Q2_1">
+          <div class="radio_btn"></div>
+          <span>小腹凸出像懷孕</span>
+        </div>
+      </label>
+      <label for="Q2_2">
+        <div class="radio">
+          <input type="radio" name="Q2" id="Q2_2">
+          <div class="radio_btn"></div>
+          <span>排便不順卡卡的</span>
+        </div>
+      </label>
+      <label for="Q2_3">
+        <div class="radio">
+          <input type="radio" name="Q2" id="Q2_3">
+          <div class="radio_btn"></div>
+          <span>努力運動卻瘦不下來</span>
+        </div>
+      </label>
+      <label for="Q2_4">
+        <div class="radio">
+          <input type="radio" name="Q2" id="Q2_4">
+          <div class="radio_btn"></div>
+          <span>消化不良容易胃脹氣</span>
+        </div>
+      </label>
+    </div>
+    <div id="survey3" class="survey_content">
+      <h3>優惠倒數時間</h3>
+      <div class="time">
+        <span class="minute">15</span>:<span class="second">00</span>
+      </div>
+      <img src="./images/240503_813_VT001_survey_price.png" alt="">
+      <a href="https://ventuno.tw/kaicho-2?survey" target="_blank" class="survey_btn btnTracking">
+        <img src="./images/240503_813_VT001_survey_btn.png" alt="">
+      </a>
+    </div>
+    <div class="step1">
+      <img src="./images/240503_813_VT001_survey_step1.png" alt="">
+    </div>
+    <div class="step2">
+      <img src="./images/240503_813_VT001_survey_step2_1.png" alt="">
+    </div>
+    <div class="step_line"></div>
+    <div class="discount">
+      剩餘優惠名額:<span class="discount_num"></span>
+    </div>
+  </div>
+
+  <script>
+    let discount = sessionStorage.getItem('discount')
+    if (discount == null && discount == undefined) {
+      let discountNum = Math.ceil(Math.random() * 15 + 4)
+      sessionStorage.setItem('discount', discountNum)
+      $('.discount_num').text(discountNum)
+    } else {
+      $('.discount_num').text(discount)
+    }
+
+    $('#survey2').hide()
+    $('#survey3').hide()
+    $('#title2').hide()
+    $('#survey1 input').on('input', function () {
+      $('#survey1').fadeOut()
+      $('.step_line').css({ 'width': '70%', 'opacity': '1' })
+      setTimeout(function () {
+        $('#survey2').fadeIn()
+        $('.step2 img').attr('src', './images/240503_813_VT001_survey_step2_2.png')
+      }, 500)
+    })
+    $('#survey2 input').on('input', function () {
+      $('#title1').fadeOut()
+      $('#survey2').fadeOut()
+      $('.step1').fadeOut()
+      $('.step2').fadeOut()
+      $('.step_line').css({ 'opacity': '0' })
+      setTimeout(function () {
+        $('#title2').fadeIn()
+        $('#survey3').fadeIn()
+        timer()
+      }, 500)
+    })
+
+    const timer = function () {
+      let minute = 14
+      let second = 59
+      let clearTime = minute * 60000 + 61000
+
+      setTimeout(function () {
+        $('.minute').text(minute)
+      }, 1000)
+
+      const secondTimer = setInterval(function () {
+        if (second < 0) {
+          second = 59
+        }
+        let num = String(second).padStart(2, "0")
+        second--
+        $('.second').text(num)
+      }, 1000)
+
+      const minuteTimer = setInterval(function () {
+        minute--
+        let num = String(minute).padStart(2, "0")
+        $('.minute').text(num)
+      }, 61000)
+
+      setTimeout(function () {
+        clearInterval(secondTimer)
+        clearInterval(minuteTimer)
+      }, clearTime)
+    }
+  </script>
+</body>
+
+</html>
