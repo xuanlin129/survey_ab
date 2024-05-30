@@ -236,7 +236,7 @@
         <span class="minute">15</span>:<span class="second">00</span>
       </div>
       <img src="./images/240503_813_VT001_survey_price.png" alt="">
-      <a href="https://ventuno.tw/kaicho-2?survey" target="_blank" class="survey_btn btnTracking">
+      <a href="" class="survey_btn btnTracking">
         <img src="./images/240503_813_VT001_survey_btn.png" alt="">
       </a>
     </div>
@@ -315,6 +315,10 @@
         clearInterval(minuteTimer)
       }, clearTime)
     }
+
+    $('.survey_btn').on('click', function () {
+      alert('test_AB')
+    })
   </script>
 </body>
 
